@@ -1,6 +1,6 @@
-# SINK-MASTER
+# SINK
 
-> welcome to sink-master docs
+> welcome to sink-docs
 
 [GitHub](https://github.com/SINK-MASTER/sink_master)
 [Get Started](README.md)
