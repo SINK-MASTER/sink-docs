@@ -34,4 +34,13 @@
     * [Dockerfile配置](docker/dockerFile.md)
     * [Rancher的安装与配置](docker/rancher_install.md)
     * [Docker下搭建PHP环境](docker/php_install.md)
+* **设计模式**
+    * [创建者模式-工程模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_01_factory)
+    * [创建者模式-抽象工厂方法](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_02_factory)
+    * [创建者模式-建造者模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_03_builder_model)
+    * [原型模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_04_prototype_model)
+    * [单例模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_05_singleton)
+    * [结构型模式-适配器模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_06_adapter)
+    * [桥接模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_07_bridging)
+    * [组合模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_08_combination)
   
