@@ -38,9 +38,22 @@
     * [创建者模式-工程模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_01_factory)
     * [创建者模式-抽象工厂方法](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_02_factory)
     * [创建者模式-建造者模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_03_builder_model)
-    * [原型模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_04_prototype_model)
-    * [单例模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_05_singleton)
+    * [创建者模式-原型模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_04_prototype_model)
+    * [创建者模式-单例模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_05_singleton)
     * [结构型模式-适配器模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_06_adapter)
-    * [桥接模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_07_bridging)
-    * [组合模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_08_combination)
+    * [结构型模式-桥接模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_07_bridging)
+    * [结构型模式-组合模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_08_combination)
+    * ~~[结构型模式-外观模式]()~~
+    * ~~[结构型模式-享元模式]()~~
+    * ~~[结构型模式-代理模式]()~~
+    * ~~[行为模式-责任链模式]()~~
+    * ~~[行为模式-命令链模式]()~~
+    * ~~[行为模式-迭代器链模式]()~~
+    * ~~[行为模式-中介者模式]()~~
+    * ~~[行为模式-备忘录模式]()~~
+    * ~~[行为模式-观察者模式]()~~
+    * ~~[行为模式-状态模式]()~~
+    * ~~[行为模式-策略模式]()~~
+    * ~~[行为模式-模版模式]()~~
+    * ~~[行为模式-访问者模式]()~~
   
