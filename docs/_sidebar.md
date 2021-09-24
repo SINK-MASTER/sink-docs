@@ -1,4 +1,4 @@
-* 服务搭建相关
+* **服务搭建相关**
     * [Linux常用命令](linux/linux.md)
     * [Linux脚本创建](linux/sh.md)
     * [Linux下防火墙的操作](linux/firewall.md)
@@ -24,10 +24,10 @@
     * [Linux下RocketMq的安装](linux/rocket_mq_install.md)
     * [Linux下solr的安装](linux/solr.md)
     * [Linux下启动Jar文件](linux/start_jar.md)
-* Docker环境搭建及操作
+* **Docker环境搭建及操作**
     * [Linux下docker环境安装](docker/docker_install.md)
     * [docker常用操作命令](docker/dokcer.md)
-* Docker环境下服务安装
+* **Docker环境下服务安装**
     * [Docker环境中安装jenkins镜像](docker/jenkins_install.md)
     * [Linux下harbor安装](docker/harbor_install.md)
     * [Docker推送Java8镜像](docker/build_java8_images.md)
