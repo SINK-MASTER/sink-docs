@@ -44,7 +44,6 @@
     * [结构型模式-桥接模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_07_bridging)
     * [结构型模式-组合模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_08_combination)
     * ~~[结构型模式-外观模式]()~~
-    * ~~[结构型模式-享元模式]()~~
     * ~~[结构型模式-代理模式]()~~
     * ~~[行为模式-责任链模式]()~~
     * ~~[行为模式-命令链模式]()~~
