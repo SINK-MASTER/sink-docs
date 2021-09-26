@@ -1,64 +1,36 @@
-- `注意修改配置文件，添加nacos.sql 数据持久化，否则重启后配置文件数据将丢失`
-- 下载
-> https://github.com/alibaba/nacos/releases
-
-- 解压
-```
-unzip nacos-server-1.3.2.zip
+- 下载镜像
+```shell script
+docker pull nacos/nacos-server:1.1.3
 ```
 
 - 启动
-> 默认端口 8848
-> 单机模式
+> `MYSQL_SERVICE_HOST`: 数据库主机地址  
+> `MYSQL_SERVICE_DB_NAME`: 数据库名称  
+> `MYSQL_SERVICE_USER`: 数据库用户名  
+> `MYSQL_SERVICE_PASSWORD`：数据库密码  
+> `SPRING_DATASOURCE_PLATFORM`：数据库类型
+> `MYSQL_DATABASE_NUM`: 数据源数量
+> `NACOS_USER`: 登陆账号名称
+> `NACOS_PASSWORD`: 登陆账号密码
+
+- 数据库账号密码在配置文件中添加 如有需要请自行追加启动配置
 ```shell script
-sh bin/startup.sh -m standalone
+-e MYSQL_SERVICE_USER=root
+-e MYSQL_SERVICE_PASSWORD=root
 ```
-> http://localhost:8848/nacos/index.html#/login
 
-
-## Spring Boot 配置Nacos
-> 添加依赖
-```
-<!-- Nacos配置 -->
-<dependency>
-    <groupId>com.alibaba.boot</groupId>
-    <artifactId>nacos-config-spring-boot-starter</artifactId>
-    <version>${nacos.starter.version}</version>
-</dependency>
-<dependency>
-    <groupId>com.alibaba.nacos</groupId>
-    <artifactId>nacos-api</artifactId>
-    <version>${nacos.api.version}</version>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
-
-    <exclusions>
-        <exclusion>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-classic</artifactId>
-        </exclusion>
-        <exclusion>
-            <groupId>ch.qos.logback</groupId>
-            <artifactId>logback-core</artifactId>
-        </exclusion>
-    </exclusions>
-</dependency>
-```
->修改配置文件
-```yaml
-spring:
-  cloud:
-    nacos:
-      config:
-        server-addr: 112.124.13.157:8848 # Nacos配置地址
-        file-extension: yaml # 配置文件类型
-        namespace: dbfaacb9-2b30-4567-9153-480ff87825c1 # 分组ID
-  profiles:
-    active: ${activeTag} # 动态配置分组名称 prod、test、dev
-  application:
-    name: sink-query # 配置文件名称
-  main:
-    allow-bean-definition-overriding: true
+```shell script
+docker run \
+-d \
+--name nacos \
+-e MYSQL_SERVICE_HOST=182.61.20.52 \
+-e MYSQL_SERVICE_DB_NAME=nacos \
+-e SPRING_DATASOURCE_PLATFORM=mysql \
+-e MYSQL_DATABASE_NUM=1 \
+-e NACOS_USER=nacos \
+-e NACOS_PASSWORD=nacos \
+-p 8848:8848 \
+-v /home/docker/nacos/conf:/home/nacos/conf \
+-v /home/docker/nacos/logs:/home/nacos/logs \
+nacos/nacos-server:1.4.1
 ```

@@ -178,10 +178,23 @@ docker inspect --format "{{.State.Pid}}" $ContainerName(或者$ContainerId)
 - 根据容器的pid进入容器：
 
 ```bash
-nsenter --target "$pid" --mount --uts --ipc --net --pid
+docker exec -it $ContainerId /bin/bash
 ```
 
 ![](../images/linux/refer_screen_57.png)
+
+### 容器与主机之间的文件拷贝
+
+- 从容器中拷贝文件到主机
+
+```shell script
+docker cp $ContainerId:容器目录 主机目录
+```
+
+- 从主机中拷贝文件到容器
+```shell script
+docker cp 主机目录 $ContainerId:容器目录
+```
 
 ### 删除容器
 
