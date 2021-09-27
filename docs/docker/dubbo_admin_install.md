@@ -5,7 +5,8 @@
 docker pull chenchuxin/dubbo-admin:latest
 ```
 
-> 启动
+> 启动  
+> `127.0.0.1` 地址注意替换
 ```shell script
 docker run -d \
 --name duubo-admin \

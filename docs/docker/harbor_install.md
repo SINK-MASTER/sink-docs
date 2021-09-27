@@ -47,14 +47,15 @@ docker-compose start
 
 - 登录账户
 > /etc/docker/
-> docker login -u admin -p Sink1234 60.205.187.16:1180
-> Error response from daemon: Get https://60.205.187.16:1180/v2/: http: server gave HTTP response to HTTPS client
+> docker login -u admin -p 123456 127.0.0.1:1180
+> Error response from daemon: Get https://127.0.0.1:1180/v2/: http: server gave HTTP response to HTTPS client  
+> `127.0.0.1` 替换为实际地址
 ```shell script
 sudo mkdir -p /etc/docker
 sudo tee /etc/docker/daemon.json <<-'EOF'
 {
     "registry-mirrors": ["https://bpma5bzi.mirror.aliyuncs.com"],
-    "insecure-registries": ["60.205.187.16:1180"]
+    "insecure-registries": ["127.0.0.1:1180"]
 }
 EOF
 sudo systemctl daemon-reload

@@ -1,5 +1,5 @@
 ```dockerfile
-FROM 60.205.187.16:1180/base/java8:1.1
+FROM 127.0.0.1:1180/base/java8:1.1
 MAINTAINER sink
 ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
