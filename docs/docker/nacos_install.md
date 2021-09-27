@@ -8,9 +8,9 @@ docker pull nacos/nacos-server:1.1.3
 > `MYSQL_SERVICE_DB_NAME`: 数据库名称  
 > `MYSQL_SERVICE_USER`: 数据库用户名  
 > `MYSQL_SERVICE_PASSWORD`：数据库密码  
-> `SPRING_DATASOURCE_PLATFORM`：数据库类型
-> `MYSQL_DATABASE_NUM`: 数据源数量
-> `NACOS_USER`: 登陆账号名称
+> `SPRING_DATASOURCE_PLATFORM`：数据库类型  
+> `MYSQL_DATABASE_NUM`: 数据源数量  
+> `NACOS_USER`: 登陆账号名称  
 > `NACOS_PASSWORD`: 登陆账号密码
 
 - 数据库账号密码在配置文件中添加 如有需要请自行追加启动配置
