@@ -10,7 +10,7 @@ docker pull chenchuxin/dubbo-admin:latest
 docker run -d \
 --name duubo-admin \
 -p 8002:8080 \
--e dubbo.registry.address=zookeeper://182.61.20.52:2181 \
+-e dubbo.registry.address=zookeeper://127.0.0.1:2181 \
 -e dubbo.admin.root.password=root \
 -e dubbo.admin.guest.password=root \
 chenchuxin/dubbo-admin 
@@ -30,8 +30,8 @@ docker run -d \
 --name dubbo-admin \
 -v /home/docker/dubbo-admin/data:/data \
 -p 8002:8080 \
--e admin.registry.address=zookeeper://182.61.20.52:2181 \
--e admin.config-center=zookeeper://182.61.20.52:2181 \
--e admin.metadata-report.address=zookeeper://182.61.20.52:2181 \
+-e admin.registry.address=zookeeper://127.0.0.1:2181 \
+-e admin.config-center=zookeeper://127.0.0.1:2181 \
+-e admin.metadata-report.address=zookeeper://127.0.0.1:2181 \
 apache/dubbo-admin
 ```
