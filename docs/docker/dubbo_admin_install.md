@@ -1,4 +1,4 @@
-### Docker dubbo-admin安装
+### dubbo-admin安装
 
 > 镜像拉取
 ```shell script
