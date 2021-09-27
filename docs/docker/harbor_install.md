@@ -21,7 +21,7 @@ yum -y install docker-compose
 harbor.v1.8.2.tar.gz  harbor.yml  install.sh  LICENSE  prepare
 ```
 - 修改`harbor.yml`文件。修改下hostname为本机的ip，harbor_admin_password web页面的密码。配置下https
-[参考harbor.yml](/conf/yml/harbor.yml)
+[参考harbor.yml](conf/yml/harbor.yml.md)
 ![](../images/harbor/harbor_02.jpg)
 
 - 运行安装脚本。出现下边即为安装成功。
@@ -61,7 +61,7 @@ EOF
 sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
-- 配置Docker加速器 [参考文件daemon.json ](../conf/json/daemon.json)
+- 配置Docker加速器 [参考文件daemon.json ](conf/json/daemon.json.md)
 
 - 这种写法是没有配置Docker加速器的情况下
 > `单个私服的写法`

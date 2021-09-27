@@ -1,3 +1,4 @@
+```yaml
 # Configuration file of Harbor
 
 # The IP address or hostname to access admin UI and registry service.
@@ -128,3 +129,5 @@ _version: 1.8.0
 # Uncomment uaa for trusting the certificate of uaa instance that is hosted via self-signed cert.
 # uaa:
 #   ca_file: /path/to/ca
+
+```
