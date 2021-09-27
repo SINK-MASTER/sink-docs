@@ -21,7 +21,7 @@ yum -y install docker-compose
 harbor.v1.8.2.tar.gz  harbor.yml  install.sh  LICENSE  prepare
 ```
 - 修改`harbor.yml`文件。修改下hostname为本机的ip，harbor_admin_password web页面的密码。配置下https
-[参考harbor.yml](../conf/yml/harbor.yml)
+[参考harbor.yml](/conf/yml/harbor.yml)
 ![](../images/harbor/harbor_02.jpg)
 
 - 运行安装脚本。出现下边即为安装成功。
@@ -62,27 +62,31 @@ sudo systemctl daemon-reload
 sudo systemctl restart docker
 ```
 - 配置Docker加速器 [参考文件daemon.json ](../conf/json/daemon.json)
-> 这种写法是没有配置Docker加速器的情况下
-```shell script
-// 单个私服的写法
+
+- 这种写法是没有配置Docker加速器的情况下
+> `单个私服的写法`
+```json
 {
     "insecure-registries": ["registry的IP地址:端口号"]
 }
-// 多个私服的写法
+```
+> `多个私服的写法`
+```json
 {
     "insecure-registries": ["registry1的IP地址:端口号","registry2的IP地址:端口号"]
 }
 ```
-> 这种写法是配置过Docker加速器的情况下
-```shell script
-// 没有配置加速器的
 
-// 单个私服的写法
+- 这种写法是配置过Docker加速器的情况下  
+> `单个私服的写法`
+```json
 {
     "registry-mirrors": ["http://f1361db2.m.daocloud.io"],
     "insecure-registries": ["registry的IP地址:端口号"]
 }
-// 多个私服的写法
+```
+> `多个私服的写法`
+```json
 {
     "registry-mirrors": ["http://f1361db2.m.daocloud.io"],
     "insecure-registries": ["registry1的IP地址:端口号","registry2的IP地址:端口号"]
