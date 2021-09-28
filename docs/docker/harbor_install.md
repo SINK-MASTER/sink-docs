@@ -14,6 +14,17 @@ wget https://storage.googleapis.com/harbor-releases/release-1.8.0/harbor-offline
 yum install epel-release
 yum -y install docker-compose
 ```
+
+- 若docker-compose安装失败
+> 下载地址 ![](https://github.com/docker/compose/releases) 选择版本下载二进制包
+```shell script
+sudo chmod +x /usr/local/bin/docker-compose
+```
+- 测试安装
+```shell script
+docker-compose --version
+```
+
 - 下载Harbor最新版本的离线安装包并解压出来。https://github.com/goharbor/harbor/releases
 ![](../images/harbor/harbor_01.png)
 > 解压后目录文件如下

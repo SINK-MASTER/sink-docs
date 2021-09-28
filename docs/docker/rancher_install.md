@@ -1,25 +1,42 @@
-- 下载安装rancher
-> 开启对应的端口访问即可
+### rancher安装
+
+- 下载镜像
 ```shell script
-docker run -d --restart=unless-stopped -v /root/rancher:/var/lib/rancher/ -p 81:80 -p 82:443 rancher/rancher:stable
+docker pull registry.cn-hangzhou.aliyuncs.com/rancher/rancher:v2.5.9
 ```
-> 以Https访问地址
-> 创建集群
 
-![](../images/rancher/rancher_02.png)
-
-![](../images/rancher/rancher_03.png)
-
-![](../images/rancher/rancher_01.jpg)
-
-![](../images/rancher/rancher_04.png)
-
-
-- 进入rancher主机
+- 启动
 ```shell script
-curl --insecure -sfL https://101.132.153.197:82/v3/import/qldvxm9sr7cnt2b754kqhtkvc4wdmfvq9j9shqtp8wt4t9m272bfgp.yaml | kubectl apply -f -
+
+docker run \
+-d \
+--name rancher \
+--privileged \
+--restart=unless-stopped \
+-e CATTLE_AGENT_IMAGE="registry.cn-hangzhou.aliyuncs.com/rancher/rancher-agent:v2.4.2" \
+-v /home/docker/rancher/:/var/lib/rancher/ \
+-p 8004:80 -p 8005:443 \
+registry.cn-hangzhou.aliyuncs.com/rancher/rancher:v2.5.9
 ```
-- 查看状态
+
+- 访问
+> `使用https端口访问` https://127.0.0.1:8005
+> ![](../images/rancher/rancher_01.png)
+
+- 添加集群
+> ![](../images/rancher/rancher_02.png)
+
+- 复制命令进入容器内执行
+> ![](../images/rancher/rancher_03.png)
+
 ```shell script
-kubectl get pods -n cattle-system
+docker ps
 ```
+> ![](../images/rancher/rancher_04.png)
+
+```shell script
+docker exec -it 5353c54653be /bin/bash
+```
+
+- 执行命令
+> ![](../images/rancher/rancher_05.png)

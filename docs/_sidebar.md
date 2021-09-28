@@ -22,20 +22,21 @@
     * [Linux下Nexus仓库的安装](linux/nexus_install.md)
     * [Linux下安装nacos](linux/nacos_install.md)
     * [Linux下RocketMq的安装](linux/rocket_mq_install.md)
+    * [Linux下harbor安装](docker/harbor_install.md)
     * [Linux下solr的安装](linux/solr.md)
     * [Linux下启动Jar文件](linux/start_jar.md)
 * **Docker环境搭建及操作**
     * [Linux下docker环境安装](docker/docker_install.md)
     * [docker常用操作命令](docker/dokcer.md)
 * **Docker环境下服务安装**
-    * [enkins镜像](docker/jenkins_install.md)
+    * [jenkins镜像](docker/jenkins_install.md)
     * [nacos安装](docker/nacos_install.md)
     * [zookeeper安装](docker/zookeeper_install.md)
     * [dubbo-admin安装](docker/dubbo_admin_install.md)
-    * [Linux下harbor安装](docker/harbor_install.md)
-    * [Docker推送Java8镜像](docker/build_java8_images.md)
+    * [rancher安装](docker/rancher_install.md)
+    * [push java8 images](docker/build_java8_images.md)
     * [Dockerfile配置](docker/dockerFile.md)
-    * [Rancher的安装与配置](docker/rancher_install.md)
+    
     * [Docker下搭建PHP环境](docker/php_install.md)
 * **设计模式**
     * [创建者模式-工程模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_01_factory)

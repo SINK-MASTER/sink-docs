@@ -70,7 +70,7 @@ systemctl daemon-reload #并重启服务
 ```
 
 - 此时需要输入初始密码
-![](../images/jenkins/jenkins_use_23.png)
+![](../images/jenkins/jenkins_02.png)
 > 里面的内容就是初始密码
 ```shell script
 cat /var/lib/jenkins/secrets/initialAdminPassword
