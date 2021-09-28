@@ -35,8 +35,8 @@
     * [dubbo-admin安装](docker/dubbo_admin_install.md)
     * [rancher安装](docker/rancher_install.md)
     * [push java8 images](docker/build_java8_images.md)
+    * [nexus安装](docker/nexus_install.md)
     * [Dockerfile配置](docker/dockerFile.md)
-    
     * [Docker下搭建PHP环境](docker/php_install.md)
 * **设计模式**
     * [创建者模式-工程模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_01_factory)

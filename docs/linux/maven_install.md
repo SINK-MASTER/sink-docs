@@ -9,7 +9,6 @@ mv apache-maven-3.3.9-bin.tar.gz maven
 ```
 - 修改配置
 ```shell script
-vim /etc/profile
 export MAVEN_HOME=/usr/local/maven
 export PATH=$PATH:$MAVEN_HOME/bin
 source /etc/profile

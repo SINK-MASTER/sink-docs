@@ -9,6 +9,7 @@ docker run \
 -u root \
 --name=jenkins \
 -v /home/docker/jenkins/jenkins_home:/var/jenkins_home \
+-e JENKINS_HOME=/home/docker/jenkins/jenkins_home \
 -p 8006:8080 \
 -p 8007:5000 \
 jenkins/jenkins:2.313
