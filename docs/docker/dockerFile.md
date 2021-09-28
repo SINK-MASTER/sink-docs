@@ -50,10 +50,10 @@ ENTRYPOINT exec java -jar ./sink-query-server/app.jar ${env_tag}
 DOCKERFILE_PATH=docker
 REGISTRY_URL=127.0.0.1:1180
 IAMGE_NAME=webapp/sink-web
-CONTAINER_NAME=sale-usercenter
+CONTAINER_NAME=sink-web
 LAST_VERSION=$(date +%Y%m%d%H%M%S)
 echo '>>> remove old containers'
-docker login -u admin -p Sink1234 $REGISTRY_URL
+docker login -u login_name -p login_pwd $REGISTRY_URL
 
 if docker ps -a | grep $IMAGE_NAME; then
     docker rm -f $(docker ps -a | grep $IMAGE_NAME | awk '{print $1}')
