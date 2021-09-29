@@ -84,4 +84,4 @@ docker logs -f ${CONTAINER_ID}
 ![](../images/jenkins/jenkins_05.png)
 
 - jenkins打包项目
->[jenkins配置](/docs/docker/jenkins_build.md)
+>[jenkins配置](/docker/jenkins_build.md)
