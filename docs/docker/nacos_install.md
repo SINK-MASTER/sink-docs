@@ -14,12 +14,12 @@ docker pull nacos/nacos-server:1.1.3
 > `NACOS_PASSWORD`: 登陆账号密码
 
 - 数据库账号密码在配置文件中添加 如有需要请自行追加启动配置
-```shell script
+```
 -e MYSQL_SERVICE_USER=root
 -e MYSQL_SERVICE_PASSWORD=root
 ```
 
-```shell script
+```
 docker run \
 -d \
 --name nacos \
