@@ -83,3 +83,6 @@ rpm -e jenkins      #卸载
 rpm -ql jenkins     #检查是否卸载成功 
 find / -iname jenkins | xargs -n 1000 rm -rf    #彻底删除残留文件
 ```
+
+- jenkins打包项目
+>[jenkins配置](/docs/docker/jenkins_build.md)
