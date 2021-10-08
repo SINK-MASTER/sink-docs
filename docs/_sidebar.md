@@ -60,4 +60,7 @@
     * ~~[行为模式-策略模式]~~
     * ~~[行为模式-模版模式]~~
     * ~~[行为模式-访问者模式]~~
+* **IntelliJ IDEA**
+    * [开启Run Dashboard](idea/run_dashboard.md)
+
   
