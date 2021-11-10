@@ -3,7 +3,7 @@
 docker pull jenkins/jenkins:2.313
 ```
 - 启动
-``` text
+```shell script
 docker run \
 -d \
 -u root \
