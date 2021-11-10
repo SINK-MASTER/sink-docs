@@ -4,6 +4,7 @@ docker pull store/minio/minio:RELEASE.2020-12-29T23-29-29Z
 ```
 
 - 启动服务
+
 ```shell script
 docker run --name minio -p 8010:9000 \
 -d -v /home/docker/minio/data/:/data \
