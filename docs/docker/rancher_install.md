@@ -6,7 +6,8 @@ docker pull registry.cn-hangzhou.aliyuncs.com/rancher/rancher:v2.5.9
 ```
 
 - 启动
-```
+
+```shell script
 docker run \
 -d \
 --name rancher \

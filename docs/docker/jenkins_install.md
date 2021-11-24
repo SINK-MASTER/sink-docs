@@ -3,7 +3,7 @@
 docker pull jenkins/jenkins:2.313
 ```
 - 启动
-```
+```shell script
 docker run \
 -d \
 -u root \
@@ -15,7 +15,7 @@ docker run \
 jenkins/jenkins:2.313
 ```
 > 因为jenkins是在docker容器内安装 而maven、jdk是安装在主机的所以要配置文件挂载
-```
+``` text
 docker run \
 -d \
 -u root \
