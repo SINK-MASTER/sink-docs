@@ -38,3 +38,32 @@ http {
     include /etc/nginx/sink/*.conf;
 }
 ```
+
+
+> 项目配置文件
+```shell script
+server {
+    # 监听端口
+    listen       80;
+    server_name  localhost;
+    client_max_body_size 10m;
+    location / {
+        proxy_pass http://localhost:8020/;
+        proxy_redirect  off;
+        proxy_set_header        Host    $http_host;
+        proxy_set_header        X-Real-IP       $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   Cookie $http_cookie;
+        chunked_transfer_encoding       off;
+    }
+    location /name {
+        proxy_pass http://localhost:8020/;
+        proxy_redirect  off;
+        proxy_set_header        Host    $http_host;
+        proxy_set_header        X-Real-IP       $remote_addr;
+        proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header   Cookie $http_cookie;
+        chunked_transfer_encoding       off;
+   }
+}
+```
