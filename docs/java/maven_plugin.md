@@ -27,7 +27,7 @@
                         <addClasspath>true</addClasspath>
                         <useUniqueVersions>false</useUniqueVersions>
                         <classpathPrefix>lib/</classpathPrefix>
-                        <mainClass>com.ezz.jos.JosCookieApplication</mainClass>
+                        <mainClass>com.sink.doc.mainName</mainClass>
                     </manifest>
                 </archive>
             </configuration>
@@ -55,7 +55,7 @@
                         <transformers>
                             <transformer
                                     implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                <mainClass>com.ezz.jos.JosCookieApplication</mainClass>
+                                <mainClass>com.sink.doc.mainName</mainClass>
                             </transformer>
                         </transformers>
                     </configuration>
