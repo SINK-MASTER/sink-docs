@@ -67,5 +67,7 @@
     * [开启Run Dashboard](idea/run_dashboard.md)
 * **Docker for Mac**    
     * [nacos-mac](mac/install_nacos.md)
+* **Java**
+    * [maven打包配置](java/maven_plugin.md)
 
   

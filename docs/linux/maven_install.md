@@ -15,7 +15,7 @@ source /etc/profile
 ```
 
 - 修改配置
-> ![参考文件](/conf/maven/setting.xml.md)
+> [参考文件](/conf/maven/setting.xml.md)
 ```shell script
 vim  /var/local/maven/conf/setting.xml
 ```
