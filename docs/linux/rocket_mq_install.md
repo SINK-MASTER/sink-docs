@@ -122,10 +122,27 @@ DefaultMQPullConsumer consumer = new DefaultMQPullConsumer(MixAll.TOOLS_CONSUMER
 > 修改配置文件
 > /home/rocketmq-4.7.1/conf/broker.conf
 ```shell script
-brokerIP1 = 101.132.153.197
+brokerClusterName = DefaultCluster
+brokerName = broker-a
+brokerId = 0
+deleteWhen = 04
+fileReservedTime = 48
+brokerRole = ASYNC_MASTER
+flushDiskType = ASYNC_FLUSH
+namesrvAddr = 外网IP:9876
+brokerIP1=外网IP
+waitTimeMillsInSendQueue=400
 ```
 > 启动时指定配置文件 `-c conf/broker.conf`
 ```shell script
 nohup sh bin/mqbroker -n 101.132.153.197:9876 autoCreateTopicEnable=true -c conf/broker.conf &
 ```
 ![](../images/rocket_mq/rocket_mq_09.png)
+
+> 启动命令
+```shell script
+nohup sh mqnamesrv &
+nohup sh mqbroker -n "127.0.0.1:9876" -c ../conf/broker.conf &tail -f nohup.out
+
+nohup java -jar rocketmq-console-ng-2.0.0.jar --server.port=8088 --rocketmq.config.namesrvAddr=127.0.0.1:9876 &
+```
