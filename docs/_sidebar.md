@@ -69,5 +69,6 @@
     * [nacos-mac](mac/install_nacos.md)
 * **Java**
     * [maven打包配置](java/maven_plugin.md)
+    * [mysql批量导入](java/mysql_bacth.md)
 
   
