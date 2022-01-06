@@ -42,6 +42,7 @@
     * [Docker下搭建PHP环境](docker/php_install.md)
     * [K8S清理脚本](docker/k8s_script.md)
     * [minio](docker/minio.md)
+    * [redis](docker/redis.md)
 * **设计模式**
     * [创建者模式-工程模式](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_01_factory)
     * [创建者模式-抽象工厂方法](https://github.com/SINK-MASTER/sink-design-patterns/tree/master/sink_02_factory)
