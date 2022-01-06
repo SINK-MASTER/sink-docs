@@ -71,5 +71,8 @@
 * **Java**
     * [maven打包配置](java/maven_plugin.md)
     * [mysql批量导入](java/mysql_bacth.md)
+* **spring-security-oauth2**
+    * [OAuth2 授权服务器配置](spring/oauth2/AuthorizationServerConfig.md)
+
 
   
