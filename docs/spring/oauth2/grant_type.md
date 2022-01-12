@@ -138,3 +138,71 @@
 | 参数名     | 参数值             | 是否必须 | 类型   | 说明     |
 | :--------- | :----------------- | :------- | :----- | :------- |
 | grant_type | client_credentials | 是       | string | 授权类型 |
+
+### token刷新
+
+###### 一、刷新token
+
+------
+
+1.1.请求地址
+
+> http://localhost:8080/oauth/token?grant_type=refresh_token&refresh_token={refresh_token}
+
+1.2.请求方式
+
+> POST
+
+1.3.请求头
+
+| 参数名        | 参数值                          | 是否必须 | 类型   | 说明                                                         |
+| :------------ | :------------------------------ | :------- | :----- | :----------------------------------------------------------- |
+| Authorization | Basic {clientId}:{clientSecret} | 是       | string | {clientId}:{clientSecret} 的值必需使用base64加密，clientId为应用id，clientSecret为应用密钥 |
+
+1.4.请求参数
+
+| 参数名        | 参数值        | 是否必须 | 类型   | 说明          |
+| :------------ | :------------ | :------- | :----- | :------------ |
+| grant_type    | refresh_token | 是       | string | 授权类型      |
+| refresh_token |               | 是       | string | 刷新token的值 |
+
+
+
+### 账号登出接口
+
+------
+
+1.1.请求URL
+
+> http://localhost:8080/oauth/remove/token?access_token={access_token}&redirect_uri={redirect_uri}
+
+1.2.请求方式
+
+> GET
+
+1.3.请求头
+
+| 参数名       | 是否必须 | 类型   | 说明                   |
+| :----------- | :------- | :----- | :--------------------- |
+| access_token | 是       | string | 登出的token            |
+| redirect_uri | 否       | string | 登出成功后重定向的地址 |
+
+
+
+### 检查token有效性
+
+------
+
+1.1.请求URL
+
+> http://localhost:8080/oauth/check_token?token={access_token}
+
+1.2.请求方式
+
+> POST
+
+1.3.请求参数
+
+| 参数名 | 是否必须 | 类型   | 说明            |
+| :----- | :------- | :----- | :-------------- |
+| token  | 是       | string | 需要检查的token |
