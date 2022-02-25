@@ -30,24 +30,20 @@ sudo rm -rf /var/lib/docker
 sudo rm -rf /var/lib/containerd
 ```
 
+- 更新索引
+```shell script
+sudo yum makecache fast
+```
+## 安装 `docker-ce`
+```shell script
+sudo yum install docker-ce
+```
+
 ## 启动 docker
 ```shell script
 sudo systemctl start docker
 ```
 
-## 其他
-- 添加yum源
-```shell script
-sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
-```
-- 更新索引
-```shell script
-sudo yum makecache fast
-```
-- 安装 `docker-ce`
-```shell script
-sudo yum install docker-ce
-```
 -  验证是否安装成功
 ```shell script
 sudo docker info
