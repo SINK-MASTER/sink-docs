@@ -69,4 +69,5 @@ nacos/nacos-server:latest
 > 进入挂载目录`/home/docker/nacos/conf` 修改cluster.conf填写集群地址 回车换行
 
 ![](../images/docker/nacos/docker_nacos_1.png)
-![](../images/docker/nacos/docker_nacos_1.png)
+
+![](../images/docker/nacos/docker_nacos_2.png)
