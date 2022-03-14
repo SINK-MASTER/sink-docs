@@ -21,7 +21,7 @@ Nginx 的最重要的几个使用场景：
 
 对于前端来说 `Node.js` 并不陌生， `Nginx` 和 `Node.js` 的很多理念类似， `HTTP` 服务器、事件驱动、异步非阻塞等，且 `Nginx` 的大部分功能使用 `Node.js` 也可以实现，但 `Nginx` 和 `Node.js` 并不冲突，都有自己擅长的领域。`Nginx`擅长于底层服务器端资源的处理（静态资源处理转发、反向代理，负载均衡等）， `Node.js` 更擅长上层具体业务逻辑的处理，两者可以完美组合。
 
-用一张图表示：![图片](../../images/nginx/nginx_1.png)
+用一张图表示：![图片](/conimages/nginx/nginx_1.png)
 
 # Nginx 安装
 
@@ -182,7 +182,7 @@ http {
 - `location` 用于配置匹配的 `uri` ；
 - `upstream` 配置后端服务器具体地址，负载均衡配置不可或缺的部分；
 
-用一张图清晰的展示它的层级结构：![图片](../../images/nginx/nginx_2.png)
+用一张图清晰的展示它的层级结构：![图片](../images/nginx/nginx_2.png)
 
 ## 配置文件 main 段核心参数
 
@@ -238,7 +238,7 @@ worker_processes auto; # 与当前cpu物理核心数一致
 worker_cpu_affinity 0001 0010 0100 1000; # 4个物理核心，4个worker子进程
 ```
 
-![图片](../../images/nginx/nginx_3.png)
+![图片](../images/nginx/nginx_3.png)
 
 将每个 `worker` 子进程与特定 `CPU` 物理核心绑定，优势在于，避免同一个 `worker` 子进程在不同的 `CPU` 核心上切换，缓存失效，降低性能。但其并不能真正的避免进程切换。
 
@@ -631,7 +631,7 @@ server {
 
 当访问 `fe.lion.com/download/` 时，会把服务器 `/opt/source/download/` 路径下的文件展示出来，如下图所示：
 
-![图片](../../images/nginx/nginx_4.png)
+![图片](../images/nginx/nginx_4.png)
 
 ## 变量
 
@@ -744,7 +744,7 @@ document_root: /usr/share/nginx/html
 
 不管是正向代理还是反向代理，实现的都是上面的功能。
 
-![图片](../../images/nginx/nginx_5.png)
+![图片](../images/nginx/nginx_5.png)
 
 ## 正向代理
 
@@ -774,7 +774,7 @@ document_root: /usr/share/nginx/html
 
 动静分离是指在 `web` 服务器架构中，将静态页面与动态页面或者静态内容接口和动态内容接口分开不同系统访问的架构设计方法，进而提示整个服务的访问性和可维护性。
 
-![图片](../../images/nginx/ngixn_6.png)
+![图片](../images/nginx/ngixn_6.png)
 
 一般来说，都需要将动态资源和静态资源分开，由于 `Nginx` 的高并发和静态资源缓存等特性，经常将静态资源部署在 `Nginx` 上。如果请求的是静态资源，直接到静态资源目录获取资源，如果是动态资源的请求，则利用反向代理的原理，把请求转发给对应后台应用去处理，从而实现动静分离。
 
@@ -809,7 +809,7 @@ document_root: /usr/share/nginx/html
 
 用于定义上游服务器（指的就是后台提供的应用服务器）的相关信息。
 
-![图片](../../images/nginx/nginx_7.png)
+![图片](../images/nginx/nginx_7.png)
 
 ```
 语法：upstream name {
@@ -1013,7 +1013,7 @@ server {
 121.5.180.193 proxy.lion.club
 ```
 
-![图片](../../images/nginx/nginx_8.png)
+![图片](../images/nginx/nginx_8.png)
 
 分析：
 
@@ -1086,7 +1086,7 @@ server {
 
 在客户端机器执行 `curl http://balance.lion.club/balance/` 命令：
 
-![图片](../../images/nginx/nginx_9.png)
+![图片](../images/nginx/nginx_9.png)
 
 不难看出，负载均衡的配置已经生效了，每次给我们分发的上游服务器都不一样。就是通过简单的轮询策略进行上游服务器分发。
 
@@ -1478,7 +1478,7 @@ gzip_http_version 1.1;
 
 多进程结构 `Nginx` 的进程模型图：
 
-![图片](../../images/nginx/nginx_10.png)
+![图片](../images/nginx/nginx_10.png)
 
 多进程中的 `Nginx` 进程架构如下图所示，会有一个父进程（ `Master Process` ），它会有很多子进程（ `Child Processes` ）。
 
