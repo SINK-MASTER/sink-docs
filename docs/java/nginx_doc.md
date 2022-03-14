@@ -31,7 +31,6 @@ Nginx 的最重要的几个使用场景：
 
 ```
 yum install nginx -y
-复制代码
 ```
 
 安装完成后，通过 `rpm -ql nginx` 命令查看 `Nginx` 的安装信息：
@@ -63,7 +62,6 @@ yum install nginx -y
 
 # 存放Nginx日志文件
 /var/log/nginx
-复制代码
 ```
 
 主要关注的文件夹有两个：
@@ -100,7 +98,6 @@ ps -ef | grep nginx
 
 # 杀死Nginx进程
 kill -9 pid # 根据上面查看到的Nginx进程号，杀死Nginx进程，-9 表示强制结束进程
-复制代码
 ```
 
 `Nginx` 应用程序命令：
@@ -112,7 +109,6 @@ nginx -s stop    # 快速关闭
 nginx -s quit    # 等待工作进程处理完成后关闭
 nginx -T         # 查看当前 Nginx 最终的配置
 nginx -t         # 检查配置是否有问题
-复制代码
 ```
 
 #     
@@ -177,7 +173,6 @@ http {
      error_page 400 404 error.html;   # 同上
     }
 }
-复制代码
 ```
 
 - `main` 全局配置，对全局生效；
@@ -199,7 +194,6 @@ http {
 user USERNAME [GROUP]
 
 user nginx lion; # 用户是nginx;组是lion
-复制代码
 ```
 
 ### pid
@@ -208,7 +202,6 @@ user nginx lion; # 用户是nginx;组是lion
 
 ```
 pid /opt/nginx/logs/nginx.pid # master主进程的的pid存放在nginx.pid的文件
-复制代码
 ```
 
 ### worker_rlimit_nofile_number
@@ -217,7 +210,6 @@ pid /opt/nginx/logs/nginx.pid # master主进程的的pid存放在nginx.pid的文
 
 ```
 worker_rlimit_nofile 20480; # 可以理解成每个worker子进程的最大连接数量。
-复制代码
 ```
 
 ### worker_rlimit_core
@@ -227,7 +219,6 @@ worker_rlimit_nofile 20480; # 可以理解成每个worker子进程的最大连�
 ```
 worker_rlimit_core 50M; # 存放大小限制
 working_directory /opt/nginx/tmp; # 存放目录
-复制代码
 ```
 
 ### worker_processes_number
@@ -237,7 +228,6 @@ working_directory /opt/nginx/tmp; # 存放目录
 ```
 worker_processes 4; # 指定具体子进程数量
 worker_processes auto; # 与当前cpu物理核心数一致
-复制代码
 ```
 
 ### worker_cpu_affinity
@@ -246,7 +236,6 @@ worker_processes auto; # 与当前cpu物理核心数一致
 
 ```
 worker_cpu_affinity 0001 0010 0100 1000; # 4个物理核心，4个worker子进程
-复制代码
 ```
 
 ![图片](../../images/nginx/nginx_3.png)
@@ -259,7 +248,6 @@ worker_cpu_affinity 0001 0010 0100 1000; # 4个物理核心，4个worker子进�
 
 ```
 worker_priority -10; # 120-10=110，110就是最终的优先级
-复制代码
 ```
 
 `Linux` 默认进程的优先级值是120，值越小越优先；`nice` 定范围为 `-20` 到 `+19` 。
@@ -272,7 +260,6 @@ worker_priority -10; # 120-10=110，110就是最终的优先级
 
 ```
 worker_shutdown_timeout 5s;
-复制代码
 ```
 
 ### timer_resolution
@@ -281,7 +268,6 @@ worker_shutdown_timeout 5s;
 
 ```
 timer_resolution 100ms;
-复制代码
 ```
 
 在 `Linux` 系统中，用户需要获取计时器时需要向操作系统内核发送请求，有请求就必然会有开销，因此这个间隔越大开销就越小。
@@ -292,7 +278,6 @@ timer_resolution 100ms;
 
 ```
 daemon off; # 默认是on，后台运行模式
-复制代码
 ```
 
 ## 配置文件 events 段核心参数
@@ -305,7 +290,6 @@ daemon off; # 默认是on，后台运行模式
 use method; # 不推荐配置它，让nginx自己选择
 
 method 可选值为：select、poll、kqueue、epoll、/dev/poll、eventport
-复制代码
 ```
 
 ### worker_connections
@@ -314,7 +298,6 @@ method 可选值为：select、poll、kqueue、epoll、/dev/poll、eventport
 
 ```
 worker_connections 1024 # 每个子进程的最大连接数为1024
-复制代码
 ```
 
 ### accept_mutex
@@ -323,7 +306,6 @@ worker_connections 1024 # 每个子进程的最大连接数为1024
 
 ```
 accept_mutex on # 默认是off关闭的，这里推荐打开
-复制代码
 ```
 
 ## server_name 指令
@@ -335,7 +317,6 @@ server_name name1 name2 name3
 
 # 示例：
 server_name www.nginx.com;
-复制代码
 ```
 
 域名匹配的四种写法：
@@ -359,7 +340,6 @@ server_name www.nginx.com;
 121.42.11.34 doc.nginx-test.com
 121.42.11.34 www.nginx-test.cn
 121.42.11.34 fe.nginx-test.club
-复制代码
 ```
 
 [注意] 这里使用的是虚拟域名进行测试，因此需要配置本地 `DNS` 解析，如果使用阿里云上购买的域名，则需要在阿里云上设置好域名解析。
@@ -408,7 +388,6 @@ server {
   index index.html;
  }
 }
-复制代码
 ```
 
 3、访问分析
@@ -433,7 +412,6 @@ location /image {
 }
 
 当用户访问 www.test.com/image/1.png 时，实际在服务器找的路径是 /opt/nginx/static/image/1.png
-复制代码
 ```
 
 [注意] `root` 会将定义路径与 `URI` 叠加， `alias` 则只取定义路径。
@@ -448,7 +426,6 @@ location /image {
 }
 
 当用户访问 www.test.com/image/1.png 时，实际在服务器找的路径是 /opt/nginx/static/image/1.png
-复制代码
 ```
 
 [注意] 使用 alias 末尾一定要添加 `/` ，并且它只能位于 `location` 中。
@@ -461,7 +438,6 @@ location /image {
 location [ = | ~ | ~* | ^~ ] uri {
  ...
 }
-复制代码
 ```
 
 匹配规则：
@@ -497,7 +473,6 @@ server {
     index index.html index.htm;
   }
 }
-复制代码
 ```
 
 ### location 中的反斜线
@@ -510,7 +485,6 @@ location /test {
 location /test/ {
  ...
 }
-复制代码
 ```
 
 - 不带 `/` 当访问 `www.nginx-test.com/test` 时， `Nginx` 先找是否有 `test` 目录，如果有则找 `test` 目录下的 `index.html` ；如果没有 `test` 目录， `nginx` 则会找是否有 `test` 文件。
@@ -541,7 +515,6 @@ location / {
 location / {
  return https://www.baidu.com ; # 返回重定向地址
 }
-复制代码
 ```
 
 ## rewrite
@@ -554,7 +527,6 @@ location / {
 上下文：server、location、if
 
 示例：rewirte /images/(.*\.jpg)$ /pic/$1; # $1是前面括号(.*\.jpg)的反向引用
-复制代码
 ```
 
 `flag` 可选值的含义：
@@ -585,7 +557,6 @@ server{
   
   }
 }
-复制代码
 ```
 
 按照这个配置我们来分析：
@@ -604,7 +575,6 @@ server{
 if($http_user_agent ~ Chrome){
   rewrite /(.*)/browser/$1 break;
 }
-复制代码
 ```
 
 `condition` 判断条件：
@@ -633,7 +603,6 @@ server {
     }
   }
 }
-复制代码
 ```
 
 当访问 `localhost:8080/images/` 时，会进入 `if` 判断里面执行 `rewrite` 命令。
@@ -658,7 +627,6 @@ server {
     autoindex_localtime off; # 显示的⽂件时间为⽂件的服务器时间。默认为off，显示的⽂件时间为GMT时间
   }
 }
-复制代码
 ```
 
 当访问 `fe.lion.com/download/` 时，会把服务器 `/opt/source/download/` 路径下的文件展示出来，如下图所示：
@@ -737,7 +705,6 @@ document_root: $document_root
 ";
  }
 }
-复制代码
 ```
 
 当我们访问 `http://var.lion-test.club:8081/test?pid=121414&cid=sadasd` 时，由于 `Nginx` 中写了 `return` 方法，因此 `chrome` 浏览器会默认为我们下载一个文件，下面展示的就是下载的文件内容：
@@ -767,7 +734,6 @@ request_time: 0.000
 https: 
 request_filename: /usr/share/nginx/html/test/
 document_root: /usr/share/nginx/html
-复制代码
 ```
 
 `Nginx` 的配置还有非常多，以上只是罗列了一些常用的配置，在实际项目中还是要学会查阅文档。
@@ -856,7 +822,6 @@ document_root: /usr/share/nginx/html
 upstream back_end_server{
   server 192.168.100.33:8081
 }
-复制代码
 ```
 
 在 `upstream` 内可使用的指令：
@@ -880,7 +845,6 @@ upstream back_end_server{
 语法：server address [parameters]
 
 上下文：upstream
-复制代码
 ```
 
 `parameters` 可选值：
@@ -902,7 +866,6 @@ keepalive connections;
 上下文：upstream
 
 示例：keepalive 16;
-复制代码
 ```
 
 ### keepalive_requests
@@ -915,7 +878,6 @@ keepalive connections;
 默认值：keepalive_requests 100;
 
 上下文：upstream
-复制代码
 ```
 
 ### keepalive_timeout
@@ -928,7 +890,6 @@ keepalive connections;
 默认值：keepalive_timeout 60s;
 
 上下文：upstream
-复制代码
 ```
 
 ### 配置实例
@@ -940,7 +901,6 @@ upstream back_end{
   keepalive_requests 50;
   keepalive_timeout 30s;
 }
-复制代码
 ```
 
 ## proxy_pass
@@ -955,7 +915,6 @@ upstream back_end{
 示例：
 proxy_pass http://127.0.0.1:8081
 proxy_pass http://127.0.0.1:8081/proxy
-复制代码
 ```
 
 `URL` 参数原则
@@ -980,7 +939,6 @@ proxy_pass http://127.0.0.1:8081/proxy
 location /bbs/{
   proxy_pass http://127.0.0.1:8080;
 }
-复制代码
 ```
 
 分析：
@@ -995,7 +953,6 @@ location /bbs/{
 location /bbs/{
   proxy_pass http://127.0.0.1:8080/;
 }
-复制代码
 ```
 
 分析：
@@ -1026,7 +983,6 @@ server{
 
 # /usr/share/nginx/html/proxy/index.html
 <h1> 121.42.11.34 proxy html </h1>
-复制代码
 ```
 
 配置完成后重启 `Nginx` 服务器 `nginx -s reload` 。
@@ -1049,14 +1005,12 @@ server {
    proxy_pass http://back_end/proxy;
   }
 }
-复制代码
 ```
 
 本地机器要访问 `proxy.lion.club` 域名，因此需要配置本地 `hosts` ，通过命令：`vim /etc/hosts` 进入配置文件，添加如下内容：
 
 ```
 121.5.180.193 proxy.lion.club
-复制代码
 ```
 
 ![图片](../../images/nginx/nginx_8.png)
@@ -1095,7 +1049,6 @@ server{
    return 200 'return 8040 \n';
   }
 }
-复制代码
 ```
 
 配置完成后：
@@ -1121,7 +1074,6 @@ server {
    proxy_pass http://demo_server;
   }
 }
-复制代码
 ```
 
 配置完成后重启 `Nginx` 服务器。并且在需要访问的客户端配置好 `ip` 和域名的映射关系。
@@ -1130,7 +1082,6 @@ server {
 # /etc/hosts
 
 121.5.180.193 balance.lion.club
-复制代码
 ```
 
 在客户端机器执行 `curl http://balance.lion.club/balance/` 命令：
@@ -1161,7 +1112,6 @@ server {
    proxy_pass http://demo_server;
   }
 }
-复制代码
 ```
 
 `hash $request_uri` 表示使用 `request_uri` 变量作为 `hash` 的 `key` 值，只要访问的 `URI` 保持不变，就会一直分发给同一台服务器。
@@ -1186,7 +1136,6 @@ server {
    proxy_pass http://demo_server;
   }
 }
-复制代码
 ```
 
 ### 最少连接数算法
@@ -1197,7 +1146,6 @@ server {
 语法：least_conn;
 
 上下文：upstream;
-复制代码
 ```
 
 示例：
@@ -1219,7 +1167,6 @@ server {
    proxy_pass http://demo_server;
   }
 }
-复制代码
 ```
 
 最后你会发现，负载均衡的配置其实一点都不复杂。
@@ -1238,7 +1185,6 @@ server {
 默认值：proxy_cache off;
 
 上下文：http、server、location
-复制代码
 ```
 
 ### proxy_cache_path
@@ -1251,7 +1197,6 @@ server {
 默认值：proxy_cache_path off
 
 上下文：http
-复制代码
 ```
 
 参数含义：
@@ -1271,7 +1216,6 @@ server {
 默认值：proxy_cache_key $scheme$proxy_host$request_uri;
 
 上下文：http、server、location
-复制代码
 ```
 
 ### proxy_cache_valid
@@ -1284,7 +1228,6 @@ server {
 上下文：http、server、location
 
 配置示例：proxy_cache_valid 200 304 2m;; # 说明对于状态为200和304的缓存文件的缓存时间是2分钟
-复制代码
 ```
 
 ### proxy_no_cache
@@ -1297,7 +1240,6 @@ server {
 上下文：http、server、location
 
 示例：proxy_no_cache $http_pragma    $http_authorization;
-复制代码
 ```
 
 ### proxy_cache_bypass
@@ -1310,7 +1252,6 @@ server {
 上下文：http、server、location
 
 示例：proxy_cache_bypass $http_pragma    $http_authorization;
-复制代码
 ```
 
 ### upstream_cache_status 变量
@@ -1325,7 +1266,6 @@ STALE: 命中了陈旧缓存
 REVALIDDATED: Nginx验证陈旧缓存依然有效
 UPDATING: 内容陈旧，但正在更新
 BYPASS: X响应从原始服务器获取
-复制代码
 ```
 
 ### 配置实例
@@ -1348,7 +1288,6 @@ server {
    index index.html;
   }
 }
-复制代码
 ```
 
 把 `121.5.180.193` 服务器作为代理服务器，做如下配置（ `/etc/nginx/conf.d/cache.conf` ）：
@@ -1372,7 +1311,6 @@ server {
     proxy_pass http://cache_server; # 代理转发
   }
 }
-复制代码
 ```
 
 缓存就是这样配置，我们可以在 `/etc/nginx/cache_temp` 路径下找到相应的缓存文件。
@@ -1399,7 +1337,6 @@ server {
     proxy_pass http://cache_server; # 代理转发
   }
 }
-复制代码
 ```
 
 ## HTTPS
@@ -1439,7 +1376,6 @@ server {
     index        index.html index.htm;
   }
 }
-复制代码
 ```
 
 如此配置后就能正常访问 `HTTPS` 版的网站了。
@@ -1463,7 +1399,6 @@ http://store.company.com/dir2/other.html 同源
 https://store.company.com/secure.html 不同源，协议不同
 http://store.company.com:81/dir/etc.html 不同源，端口不同
 http://news.company.com/dir/other.html 不同源，主机不同
-复制代码
 ```
 
 不同源会有如下限制：
@@ -1491,7 +1426,6 @@ server {
   proxy_pass dev.server.com;
  }
 }
-复制代码
 ```
 
 这样可以完美绕过浏览器的同源策略：`fe.server.com` 访问 `Nginx` 的 `fe.server.com` 属于同源访问，而 `Nginx` 对服务端转发的请求不会触发浏览器的同源策略。
@@ -1532,7 +1466,6 @@ gzip_buffers 16 8k;
 
 # 默认 1.1，启用 gzip 所需的 HTTP 最低版本；
 gzip_http_version 1.1;
-复制代码
 ```
 
 其实也可以通过前端构建工具例如 `webpack` 、`rollup` 等在打生产包时就做好 `Gzip` 压缩，然后放到 `Nginx` 服务器中，这样可以减少服务器的开销，加快访问速度。
