@@ -21,7 +21,7 @@ Nginx 的最重要的几个使用场景：
 
 对于前端来说 `Node.js` 并不陌生， `Nginx` 和 `Node.js` 的很多理念类似， `HTTP` 服务器、事件驱动、异步非阻塞等，且 `Nginx` 的大部分功能使用 `Node.js` 也可以实现，但 `Nginx` 和 `Node.js` 并不冲突，都有自己擅长的领域。`Nginx`擅长于底层服务器端资源的处理（静态资源处理转发、反向代理，负载均衡等）， `Node.js` 更擅长上层具体业务逻辑的处理，两者可以完美组合。
 
-用一张图表示：![](/conimages/nginx/nginx_1.png)
+用一张图表示：![](../images/nginx/nginx_1.png)
 
 # Nginx 安装
 
