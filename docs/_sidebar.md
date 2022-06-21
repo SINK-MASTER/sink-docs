@@ -26,6 +26,7 @@
     * [Linux下solr的安装](linux/solr.md)
     * [Linux下启动Jar文件](linux/start_jar.md)
     * [Linux下系统自启动服务](linux/system_start_service.md)
+    * [Linux下GitLab相关](linux/gitlab_service.md)
 * **Docker环境搭建及操作**
     * [Linux下docker环境安装](docker/docker_install.md)
     * [docker常用操作命令](docker/dokcer.md)
