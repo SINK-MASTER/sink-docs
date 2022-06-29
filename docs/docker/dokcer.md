@@ -338,7 +338,7 @@ ln -s /mydata/docker /var/lib/docker
 
 ![](../images/linux/refer_screen_65.png)
 
-- 查看Docker容器的挂在目录
+## 查看Docker容器的挂在目录
 
 ```shell script
 docker ps
