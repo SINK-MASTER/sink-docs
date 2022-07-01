@@ -64,7 +64,7 @@ sh bin/mqshutdown namesrv
 
 
 
-#### 启动Broker
+### 启动Broker
 
 > 追加`broker.conf`配置
 
@@ -78,7 +78,7 @@ waitTimeMillsInSendQueue=400
 
 ```shell
 ### start Broker
-nohup sh mqbroker -n "本机外网IP:9876" -c ../conf/broker.conf &tail -f nohup.out
+nohup sh mqbroker -n "本机外网IP:9876" autoCreateTopicEnable=true -c ../conf/broker.conf &tail -f nohup.out
 The broker[broker-a, 本机外网IP:10911] boot success. serializeType=JSON and name server is 本机外网IP:9876
 ```
 
