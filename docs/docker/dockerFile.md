@@ -1,4 +1,4 @@
-> web层  
+### web层  
 > `127.0.0.1`注意替换
 ```dockerfile
 FROM 127.0.0.1:1180/base/java8:1.1
@@ -20,7 +20,7 @@ ENV CLASSPATH ./sink-web/app.jar;./sink-web/lib/*;
 ENTRYPOINT exec java -jar ./sink-web/app.jar ${env_tag}
 ```
 
-> server层
+### server层
 > `127.0.0.1` 注意替换
 ```dockerfile
 FROM 127.0.0.1:1180/base/java8:1.1
@@ -44,7 +44,7 @@ ENV CLASSPATH ./sink-query-server/app.jar;./sink-query-server/lib/*;
 ENTRYPOINT exec java -jar ./sink-query-server/app.jar ${env_tag}
 ```
 
-> jenkins打包编译脚本   
+### jenkins打包编译脚本   
 > `127.0.0.1` 注意替换
 ```shell script
 DOCKERFILE_PATH=docker
@@ -73,4 +73,6 @@ docker build -t $REGISTRY_URL/$IAMGE_NAME:$LAST_VERSION .
 echo '>>> push image to registry'
 docker push $REGISTRY_URL/$IAMGE_NAME:$LAST_VERSION
 echo '>>> build end'
+docker rmi $(docker images | grep $LAST_VERSION | awk '{print $3}')
+echo '>>> remove local docker image'
 ```

@@ -350,5 +350,5 @@ docker inspect jenkins | grep Mounts -A 20
 ```
 ![](../images/docker/docker_2.png)
 
-- Docker备份文件存储位置
+## Docker备份文件存储位置
 > `/opt/rke/etcd-snapshots`
