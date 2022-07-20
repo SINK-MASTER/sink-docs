@@ -1,9 +1,9 @@
-- 拉取镜像
-```shell script
+## 拉取镜像
+```shell
 docker pull jenkins/jenkins:2.313
 ```
-- 启动
-```shell script
+## 启动
+```shell
 docker run \
 -d \
 -u root \
@@ -14,8 +14,11 @@ docker run \
 -p 8007:5000 \
 jenkins/jenkins:2.313
 ```
+
 > 因为jenkins是在docker容器内安装 而maven、jdk是安装在主机的所以要配置文件挂载
-``` text
+ 
+
+``` shell
 docker run \
 -d \
 -u root \
@@ -28,8 +31,9 @@ docker run \
 -p 8007:5000 \
 jenkins/jenkins:2.313
 ```
-> 进入容器设置环境变量
-```
+
+## 进入容器设置环境变量
+``` shell
 apt-get update
 
 apt -y install yum
@@ -46,8 +50,10 @@ export PATH=$PATH:$MAVEN_HOME/bin
 
 source /etc/profile
 ```
-- 查看日志
-```shell script
+
+## 查看日志
+
+```shell
 docker logs -f ${CONTAINER_ID}
 ```
 ![](../images/jenkins/jenkins_01.png)doc     
